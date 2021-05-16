@@ -3,14 +3,14 @@ package infrastructure.repository;
 import core.entities.Dieta;
 import core.interfaces.dao.IDietaDAO;
 import core.interfaces.dao.base.IDAO;
-import infrastructure.dao.DietaDAO;
+import core.interfaces.repository.IDietaRepository;
 import infrastructure.repository.base.DefaultRepository;
 
-public class DietaRepository extends DefaultRepository<Dieta>{
+public class DietaRepository extends DefaultRepository<Dieta> implements IDietaRepository{
 
 	protected final IDietaDAO _idao;
-	public DietaRepository() {
-		this._idao = new DietaDAO();
+	public DietaRepository(IDietaDAO dao) {
+		this._idao = dao;
 		
 	}
 	@Override

@@ -1,22 +1,20 @@
-package infrastructure;
+package testes;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 
-public class JDBCMySQLConnection {
-    //static reference to itself
-    private static JDBCMySQLConnection instance = new JDBCMySQLConnection();
-    private static final String URL = "jdbc:mysql://localhost:3306/test";
-    private static final String USER = "dietaja";
-    private static final String PASSWORD = "dietaja";
-    private static final String DRIVER_CLASS = "com.mysql.jdbc.Driver"; 
+public class DAOConnectionTest {
+	//Padrão de Singleton
+    protected static DAOConnectionTest instance = new DAOConnectionTest();
+    protected final String URL = "jdbc:mysql://localhost:3306/test";
+    protected final String USER = "dietaja";
+    protected final String PASSWORD = "dietaja";
+    protected final String DRIVER_CLASS = "com.mysql.jdbc.Driver"; 
      
-    private JDBCMySQLConnection() {
+    private DAOConnectionTest() {
         try {
-            //Step 2: Load MySQL Java driver
+            // Carrega MySQL Java driver
             Class.forName(this.DRIVER_CLASS);
         } catch (ClassNotFoundException e) {
             e.printStackTrace();

@@ -5,37 +5,26 @@ import core.entities.PorcaoDeAlimento;
 import core.interfaces.dao.IPorcaoDeAlimentoDAO;
 import core.interfaces.dao.base.IDAO;
 import core.interfaces.repository.IPorcaoDeAlimentoRepository;
-import infrastructure.dao.PorcaoDeAlimentoDAO;
 import infrastructure.repository.base.DefaultRepository;
 
 public class PorcaoDeAlimentoRepository extends DefaultRepository<PorcaoDeAlimento> implements IPorcaoDeAlimentoRepository{
 	
 	protected final IPorcaoDeAlimentoDAO _idao;
-	public PorcaoDeAlimentoRepository() {
-		this._idao = new PorcaoDeAlimentoDAO();
+	public PorcaoDeAlimentoRepository(IPorcaoDeAlimentoDAO dao) {
+		this._idao = dao;
 	}
 	
 	
-	public void associarPorcaoAlimentoDieta(List<Integer> listIdProcaoAlimento, int idDieta){
-		this._idao.associarPorcaoAlimentoDieta(listIdProcaoAlimento, idDieta);
+	public Integer associarPorcaoAlimentoDieta(List<Integer> listIdProcaoAlimento, Integer idDieta){
+		return this._idao.associarPorcaoAlimentoDieta(listIdProcaoAlimento, idDieta);
     }
 
-    public void associarPorcaoRefeicoes(List<Integer> listIdRefeicao, int idPorcaoDeAlimento){
-    	this._idao.associarPorcaoRefeicoes(listIdRefeicao, idPorcaoDeAlimento);
+    public Integer associarPorcaoRefeicoes(List<Integer> listIdRefeicao, Integer idPorcaoDeAlimento){
+    	return this._idao.associarPorcaoRefeicoes(listIdRefeicao, idPorcaoDeAlimento);
     }
 
-    @Override
-    public PorcaoDeAlimento get(int id){
-    	return this._idao.get(id);
-    }
-
-    public List<PorcaoDeAlimento> retornaPorcaoDeAlimentoPeloIdDaDieta(int id){
+    public List<PorcaoDeAlimento> retornaPorcaoDeAlimentoPeloIdDaDieta(Integer id){
     	return this._idao.retornaPorcaoDeAlimentoPeloIdDaDieta(id);
-    }
-
-    @Override
-    public PorcaoDeAlimento get(PorcaoDeAlimento entity){
-    	return this._idao.get(entity);
     }
 
 	@Override

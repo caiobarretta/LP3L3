@@ -4,6 +4,6 @@ import core.entities.RegistroDeAtividade;
 import core.interfaces.dao.base.IDAO;
 import core.interfaces.repository.IRegistroDeAtividadeRepository;
 
-public interface IRegistroDeAtividadeDAO extends IDAO<RegistroDeAtividade>, IRegistroDeAtividadeRepository{
+public interface IRegistroDeAtividadeDAO extends IRegistroDeAtividadeRepository{
 
 }
